@@ -43,5 +43,5 @@ Compute accuracy of the model
 
 Run codes below in jupyter notebook
 
-%run -i mlpipeline.py
+%run -i mlpipeline.py  
 %run -i usepipeline.py
