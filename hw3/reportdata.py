@@ -47,13 +47,13 @@ dic_lst = []
 metric_lst = ["accuracy", "precision", "recall", "f1", "ap", "auc"]
 for data_set in data_sets:
     train_x, test_x, train_y, test_y = data_set
-    rfmodel = revmlpipeline.random_forest(train_x, train_y)
+    rfmodel = revmlpipeline.random_forest(train_x, train_y, 20)
     bagmodel = revmlpipeline.bagging(train_x, train_y)
-    kmodel = revmlpipeline.k_neighbors(4, train_x, train_y)
-    treemodel = revmlpipeline.decision_tree(train_x, train_y)
-    svmmodel = revmlpipeline.svm(train_x, train_y)
+    kmodel = revmlpipeline.k_neighbors(train_x, train_y, 4)
+    treemodel = revmlpipeline.decision_tree(train_x, train_y, None)
+    svmmodel = revmlpipeline.lsvm(train_x, train_y, "l2", 1.0)
     boostmodel = revmlpipeline.boosting(train_x, train_y)
-    logmodel = revmlpipeline.logistic_regression(train_x, train_y)
+    logmodel = revmlpipeline.logistic_regression(train_x, train_y, "l2", 1.0)
     model_lst = [kmodel, treemodel, svmmodel, logmodel, rfmodel, bagmodel, boostmodel]
     metric_dic = {}
     for model in model_lst:

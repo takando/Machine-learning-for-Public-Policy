@@ -79,34 +79,28 @@ def time_split(df, span, length, start_time, col_name, x_cols, y_col):
     return train_x, test_x, train_y, test_y
 
 
-def k_neighbors(k, x_train, y_train):
+def k_neighbors(x_train, y_train, k):
     knn = KNeighborsClassifier(n_neighbors=k, metric='minkowski')
     return knn.fit(x_train, y_train)
 
 
-def decision_tree(x_train, y_train):
-    dec_tree = DecisionTreeClassifier(random_state=0) 
+def decision_tree(x_train, y_train, depth):
+    dec_tree = DecisionTreeClassifier(random_state=0, max_depth=depth) 
     return dec_tree.fit(x_train, y_train)
 
 
-
-def svm(x_train, y_train):
-    svm_model = LinearSVC(random_state=0)
-    return svm_model.fit(x_train, y_train)
-
-
-# def lsvm(x_train, y_train):
-#     lsvm_model = LinearSVC(random_state=0)
-#     return lsvm_model.fit(x_train, y_train)
+def lsvm(x_train, y_train, penalty, c):
+    lsvm = LinearSVC(random_state=0, penalty=penalty, C=c)
+    return lsvm.fit(x_train, y_train)
 
 
-def logistic_regression(x_train, y_train):
-    log_model = LogisticRegression(random_state=0) 
+def logistic_regression(x_train, y_train, penalty, c):
+    log_model = LogisticRegression(random_state=0, penalty=penalty, C=c) 
     return log_model.fit(x_train, y_train)
 
 
-def random_forest(x_train, y_train):
-    r_for = RandomForestClassifier(n_estimators=20, random_state=0)
+def random_forest(x_train, y_train, n):
+    r_for = RandomForestClassifier(n_estimators=n, random_state=0)
     return r_for.fit(x_train, y_train)
 
 
