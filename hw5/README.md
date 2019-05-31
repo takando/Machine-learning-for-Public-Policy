@@ -1,4 +1,4 @@
-# Machine learning homework3
+# Machine learning homework5
 
 Takuya Ando
 
@@ -17,7 +17,7 @@ Jupyter notebook file which shows the result of analyzing donor data
 Jupyter notebook file for making short report
 
 
-## Major improvement
+## Major improvement from HW3
 
 1. Leave the gap between train data and test data  
 -Make 60days gap before test data starts
